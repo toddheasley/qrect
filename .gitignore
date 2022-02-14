@@ -1,5 +1,6 @@
 .DS_Store
 xcuserdata
 Package.resolved
+*.xctimeline
 .swiftpm
 .build/

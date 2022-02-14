@@ -2,8 +2,8 @@ import XCTest
 @testable import QRect
 
 final class QRCodeTests: XCTestCase {
-    func testASCII() {
-        XCTAssertEqual(QRCode("Example")?.ascii, "Example")
+    func testString() {
+        XCTAssertEqual(QRCode("Example")?.string, "Example")
     }
     
     func testImage() {
@@ -16,18 +16,18 @@ final class QRCodeTests: XCTestCase {
     }
     
     func testWIFIInit() {
-        XCTAssertEqual(QRCode(wifi: "Example", password: "P@$$w0rd")?.ascii, "WIFI:S:Example;T:WPA;P:P@$$w0rd;;")
-        XCTAssertEqual(QRCode(wifi: "Example", password: "password", networkType: .wep, isHidden: true)?.ascii, "WIFI:S:Example;T:WEP;P:password;H:true;")
-        XCTAssertEqual(QRCode(wifi: "Example", password: "", networkType: nil, isHidden: false)?.ascii, "WIFI:S:Example;;P:;H:false;")
+        XCTAssertEqual(QRCode(wifi: "Example", password: "P@$$w0rd")?.string, "WIFI:S:Example;T:WPA;P:P@$$w0rd;;")
+        XCTAssertEqual(QRCode(wifi: "Example", password: "password", networkType: .wep, isHidden: true)?.string, "WIFI:S:Example;T:WEP;P:password;H:true;")
+        XCTAssertEqual(QRCode(wifi: "Example", password: "", networkType: nil, isHidden: false)?.string, "WIFI:S:Example;;P:;H:false;")
         XCTAssertNil(QRCode(wifi: "", password: "P@$$w0rd"))
     }
     
     func testURLInit() {
-        XCTAssertEqual(QRCode(url: URL(string: "https://example.com")!)?.ascii, "https://example.com")
+        XCTAssertEqual(QRCode(url: URL(string: "https://example.com")!)?.string, "https://example.com")
     }
     
-    func testASCIIInit() {
-        XCTAssertEqual(QRCode("Example")?.ascii, "Example")
+    func testStringInit() {
+        XCTAssertEqual(QRCode("Example")?.string, "Example")
         XCTAssertNil(QRCode("👍"))
         XCTAssertNil(QRCode(""))
     }

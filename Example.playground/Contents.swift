@@ -2,4 +2,6 @@ import SwiftUI
 import PlaygroundSupport
 import QRect
 
-PlaygroundPage.current.setLiveView(Image(qrCode: QRCode("https://example.com")!, scale: 3))
+let qrCode: QRCode = QRCode("https://example.com")!
+PlaygroundPage.current.setLiveView(Image(qrCode: qrCode, color: .primary, scale: 3)
+    .padding())

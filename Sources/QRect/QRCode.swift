@@ -12,7 +12,7 @@ public struct QRCode: CustomStringConvertible {
     
     public let data: Data
     
-    public var ascii: String {
+    public var string: String {
         return String(data: data, encoding: .ascii)!
     }
     
@@ -41,9 +41,9 @@ public struct QRCode: CustomStringConvertible {
         self.init(url.absoluteString)
     }
     
-    public init?(_ ascii: String) {
-        guard !ascii.isEmpty,
-              let data: Data = ascii.data(using: .ascii),
+    public init?(_ string: String) {
+        guard !string.isEmpty,
+              let data: Data = string.data(using: .ascii),
               let filter: CIFilter = CIFilter(name: "CIQRCodeGenerator") else {
             return nil
         }
@@ -59,6 +59,6 @@ public struct QRCode: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        return "\(ascii)"
+        return "\(string)"
     }
 }

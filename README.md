@@ -42,11 +42,7 @@ PlaygroundPage.current.setLiveView(UIImageView(image: image))
 transparent PNG:
 
 ```zsh
-toddheasley Desktop % ./qrect-cli "https://example.com" -s 3 -fo
-Encode string "https://example.com"
-Save file "https___example.com@3x.png"
-Open with Finder…
-Show in Finder…
+toddheasley Desktop % ./qrect-cli "https://example.com" -fos 3
 ```
 
 By default, the resulting QR code PNG will use the minimum number of pixels needed to encode the ASCII value -- always square and usually with an edge length of 23 or 27 pixels. Use `--scale` with an integer value greater than 1 to generate larger resolution PNGs:

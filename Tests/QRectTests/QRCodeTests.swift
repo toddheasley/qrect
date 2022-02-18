@@ -28,7 +28,7 @@ final class QRCodeTests: XCTestCase {
     
     func testStringInit() {
         XCTAssertEqual(QRCode("Example")?.string, "Example")
-        XCTAssertNil(QRCode("👍"))
+        XCTAssertNil(QRCode("🤞"))
         XCTAssertNil(QRCode(""))
     }
 }

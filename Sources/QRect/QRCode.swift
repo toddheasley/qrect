@@ -59,6 +59,6 @@ public struct QRCode: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        return "\(string)"
+        return string
     }
 }

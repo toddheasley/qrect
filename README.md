@@ -4,23 +4,21 @@
 
 ## Example Usage
 
+Preview in the included [`Example.playground`](Example.playground):
+
 ```swift
 import PlaygroundSupport
 import SwiftUI
 import QRect
 
-var qrCode: QRCode = QRCode(url: URL(string: "https://example.com")!)!
-print(qrCode) // https://example.com
-
-qrCode = QRCode(wifi: "Abraham Linksys", password: "P@$$w0rd", networkType: .wpa)!
-print(qrCode) // WIFI:S:Abraham Linksys;T:WPA;P:P@$$w0rd;;
-
-qrCode = QRCode("https://example.com")!
-print(qrCode) // https://example.com
+var qrCode: QRCode = QRCode(url: URL(string: "https://example.com")!)! // https://example.com
+qrCode = QRCode(wifi: "Abraham Linksys", password: "P@$$w0rd", networkType: .wpa)! // WIFI:S:Abraham Linksys;T:WPA;P:P@$$w0rd;;
+qrCode = QRCode("https://example.com")! // https://example.com
 
 PlaygroundPage.current.setLiveView(Image(qrCode: qrCode, color: .primary, scale: 3)
     .padding())
 ```
+Also works in both AppKit and UIKit:
 
 ```swift
 import Cocoa
@@ -38,11 +36,11 @@ PlaygroundPage.current.setLiveView(UIImageView(image: image))
 
 ## Command-Line Interface
 
-`QRect` package includes `qrect-cli` for saving a QR code of any ASCII string to the working directory as
+Package includes `qrect-cli` for saving a QR code of any ASCII string to the working directory as
 transparent PNG:
 
 ```zsh
-toddheasley Desktop % ./qrect-cli "https://example.com" -fos 3
+./qrect-cli "https://example.com" -fos 3
 ```
 
 By default, the resulting QR code PNG will use the minimum number of pixels needed to encode the ASCII value -- always square and usually with an edge length of 23 or 27 pixels. Use `--scale` with an integer value greater than 1 to generate larger resolution PNGs:

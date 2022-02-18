@@ -43,7 +43,7 @@ transparent PNG:
 ./qrect-cli "https://example.com" -fos 3
 ```
 
-By default, the resulting QR code PNG will use the minimum number of pixels needed to encode the ASCII value -- always square and usually with an edge length of 23 or 27 pixels. Use `--scale` with an integer value greater than 1 to generate larger resolution PNGs:
+By default, the resulting QR code PNG will use the minimum number of pixels needed to encode the ASCII value -- always square and at least 23 pixels. Use `--scale` with an integer value greater than 1 to generate larger resolution PNGs:
 
 ## Requirements
 
